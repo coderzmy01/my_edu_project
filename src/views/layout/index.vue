@@ -1,20 +1,15 @@
 <template>
   <el-container>
     <el-aside style="width: auto; background-color: rgb(238, 241, 246)">
-      <app-aside></app-aside>
+      <app-aside :isCollapse="isCollapse"></app-aside>
     </el-aside>
 
     <el-container>
-      <el-header style="text-align: right; font-size: 12px">
-        <el-dropdown>
-          <i class="el-icon-setting" style="margin-right: 15px"></i>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>查看</el-dropdown-item>
-            <el-dropdown-item>新增</el-dropdown-item>
-            <el-dropdown-item>删除</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-        <span>王小虎</span>
+      <el-header>
+        <app-header
+          :isCollapse="isCollapse"
+          :toggleCollapse="toggleCollapse"
+        ></app-header>
       </el-header>
 
       <el-main>
@@ -39,7 +34,7 @@
 </style>
 <script>
 import appAside from './cpnts/app-aside.vue'
-
+import appHeader from './cpnts/app-header.vue'
 export default {
   name: 'layoutIndex',
   data () {
@@ -49,11 +44,18 @@ export default {
       address: '上海市普陀区金沙江路 1518 弄'
     }
     return {
-      tableData: Array(20).fill(item)
+      tableData: Array(20).fill(item),
+      isCollapse: false
     }
   },
   components: {
-    appAside
+    appAside,
+    appHeader
+  },
+  methods: {
+    toggleCollapse () {
+      this.isCollapse = !this.isCollapse
+    }
   }
 
 }

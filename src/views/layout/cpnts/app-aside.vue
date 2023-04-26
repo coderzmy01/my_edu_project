@@ -41,8 +41,12 @@
 
 export default {
   data () {
-    return {
-      isCollapse: false
+
+  },
+  props: {
+    isCollapse: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {},
