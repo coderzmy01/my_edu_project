@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+    <el-aside style="width: auto; background-color: rgb(238, 241, 246)">
       <app-aside></app-aside>
     </el-aside>
 
@@ -29,7 +29,7 @@
   color: #333;
   line-height: 60px;
 }
-el-container {
+.el-container {
   height: 100vh;
 }
 
